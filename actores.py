@@ -154,17 +154,18 @@ class Moneda(Actor):
 
 class Salida(Actor):
     def __init__(self):
-        """Crea al Heroe."""
+        """Crea la Salida."""
         Actor.__init__(self)
 
     def dibujar(self):
-        """Devuelve el caracter que representa al Heroe."""
+        """Devuelve el caracter que representa la Salida."""
         return '<'
 
     def interactuar_con_heroe(self, juego):
         """Realiza la accion correspondiente a la interaccion con el heroe (es
         decir, cuando el heroe intenta moverse a la posicion ocupada por este actor).
         Devuelve True si el heroe realizo alguna accion, False en caso contrario."""
+        juego.msg("Has escapado del calabozo !")
         return True
 
 ###
