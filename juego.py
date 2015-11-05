@@ -22,11 +22,11 @@ class Juego(object):
         heroe, la funcion lanza una excepcion.
         `filas` es una lista de strings, que corresponde con el contenido completo
         del archivo .map."""
-        L=[]
-        for line in filas:
-            L.append(list(line))
-
-        mapa = Mapa(L)
+        ####
+        #### Modificar este codigo para que cargue el mapa dinamicamente
+        #### a partir de `filas`
+        ####
+        mapa = Mapa(10, 10)
         heroe = actores.Heroe()
         mapa.agregar_actor(heroe, 5, 5)
         return mapa, heroe

@@ -1,14 +1,13 @@
 class Mapa(object):
     """Representa al mapa del juego."""
 
-    def __init__(self, filas):
+    def __init__(self, ancho, alto):
         """Inicializa un mapa con dimensiones (ancho, alto)"""
         self.celdas = []
         self.actores = []
-        self.filas = filas
-        for x in xrange(len(filas)):
+        for x in xrange(ancho):
             self.celdas.append([])
-            for y in xrange(len(filas[0])):
+            for y in xrange(alto):
                 self.celdas[x].append(None)
 
     def ancho(self):
@@ -57,8 +56,7 @@ class Mapa(object):
         """Dibuja el contenido de todas las celdas del mapa en la ventana provista"""
         for x, colunma in enumerate(self.celdas):
             for y, actor in enumerate(colunma):
-                #caracter = '.'
-                caracter=self.filas[x][y]
+                caracter = '.'
                 if actor:
                     caracter = actor.dibujar()
                 ventana.addstr(y, x, caracter)
