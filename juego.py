@@ -42,6 +42,10 @@ class Juego(object):
                     mapa.agregar_actor(actores.Goblin(), i,j)
                 if(char == '$'):
                     mapa.agregar_actor(actores.Moneda(), i,j)
+                if(char == '<'):
+                    mapa.agregar_actor(actores.Salida(), i,j)
+                if(char == 'o'):
+                    mapa.agregar_actor(actores.Orco(), i,j)
 
         if posHero == 0:
             raise Exception("ERROR2")

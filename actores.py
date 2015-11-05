@@ -101,6 +101,19 @@ class Goblin(Actor):
     def dibujar(self):
         """Devuelve el caracter que representa al Heroe."""
         return 'g'
+    
+    def interactuar_con_heroe(self, juego):
+        self.vivo = False
+        return True
+
+class Orco(Actor):
+    def __init__(self):
+        """Crea al Heroe."""
+        Actor.__init__(self)
+
+    def dibujar(self):
+        """Devuelve el caracter que representa al Heroe."""
+        return 'o'
 
 class Moneda(Actor):
     def __init__(self):
@@ -110,6 +123,31 @@ class Moneda(Actor):
     def dibujar(self):
         """Devuelve el caracter que representa al Heroe."""
         return '$'
+
+    def interactuar_con_heroe(self, juego):
+        """Realiza la accion correspondiente a la interaccion con el heroe (es
+        decir, cuando el heroe intenta moverse a la posicion ocupada por este actor).
+        Devuelve True si el heroe realizo alguna accion, False en caso contrario."""
+        juego.msg("You won 100$ !")
+        self.vivo = False
+        ### NEED TO MOVE HEROES
+        return True
+
+class Salida(Actor):
+    def __init__(self):
+        """Crea al Heroe."""
+        Actor.__init__(self)
+
+    def dibujar(self):
+        """Devuelve el caracter que representa al Heroe."""
+        return '<'
+
+    def interactuar_con_heroe(self, juego):
+        """Realiza la accion correspondiente a la interaccion con el heroe (es
+        decir, cuando el heroe intenta moverse a la posicion ocupada por este actor).
+        Devuelve True si el heroe realizo alguna accion, False en caso contrario."""
+        return True
+
 ###
 ### Agregar las clases Enemigo (g = goblin, o = orco), Moneda ($), Pared (#) y Salida (<)
 ###
