@@ -104,9 +104,12 @@ class Goblin(Actor):
         return 'g'
     
     def interactuar_con_heroe(self, juego):
-        if(random.randint(0,1)):
-            juego.msg("MONEY !!")
         self.vivo = False
+        drop = random.randint(0,1)
+        if(drop):
+            juego.msg("MONEY !!")
+            juego.mapa.agregar_actor(Moneda(), self.x,self.y)
+        
         return True
 
 class Orco(Actor):
@@ -133,7 +136,7 @@ class Moneda(Actor):
         Devuelve True si el heroe realizo alguna accion, False en caso contrario."""
         juego.msg("You won 100$ !")
         self.vivo = False
-        ### NEED TO MOVE HEROES
+        juego.mapa.mover_actor(juego.heroe,self.x,self.y)
         return True
 
 class Salida(Actor):
