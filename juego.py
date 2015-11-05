@@ -28,7 +28,12 @@ class Juego(object):
         ####
         posHero = 0
         mapList = []
-        mapa = Mapa(len(filas), len(filas[0]))
+        mapa = Mapa(len(filas[0]), len(filas))
+        T = zip(*filas)
+        for i in xrange(len(T)):
+           T[i] = ''.join(T[i])
+        filas = T
+        
         for i, line in enumerate(filas):
             for j, char in enumerate(line):
                 if(char == '@'):
@@ -41,7 +46,7 @@ class Juego(object):
                 if(char == 'g'):
                     mapa.agregar_actor(actores.Goblin(), i,j)
                 if(char == '$'):
-                    mapa.agregar_actor(actores.Moneda(), i,j)
+                    mapa.agregar_actor(actores.Moneda(100), i,j)
                 if(char == '<'):
                     mapa.agregar_actor(actores.Salida(), i,j)
                 if(char == 'o'):

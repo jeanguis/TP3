@@ -96,7 +96,7 @@ class Pared(Actor):
 
 class Goblin(Actor):
     def __init__(self):
-        """Crea al Heroe."""
+        """Crea al Goblin."""
         Actor.__init__(self)
 
     def dibujar(self):
@@ -104,12 +104,13 @@ class Goblin(Actor):
         return 'g'
     
     def interactuar_con_heroe(self, juego):
+        juego.msg("El goblin muere !")
         self.vivo = False
         drop = random.randint(0,1)
         if(drop):
-            juego.msg("MONEY !!")
-            juego.mapa.agregar_actor(Moneda(), self.x,self.y)
-        
+            value = random.randint(1,150)
+            juego.msg("El goblin abandonó "+str(value))
+            juego.mapa.agregar_actor(Moneda(value), self.x,self.y)
         return True
 
 class Orco(Actor):
@@ -122,8 +123,9 @@ class Orco(Actor):
         return 'o'
 
 class Moneda(Actor):
-    def __init__(self):
+    def __init__(self, moneda):
         """Crea al Heroe."""
+        self.value = moneda
         Actor.__init__(self)
 
     def dibujar(self):
@@ -134,7 +136,8 @@ class Moneda(Actor):
         """Realiza la accion correspondiente a la interaccion con el heroe (es
         decir, cuando el heroe intenta moverse a la posicion ocupada por este actor).
         Devuelve True si el heroe realizo alguna accion, False en caso contrario."""
-        juego.msg("You won 100$ !")
+        juego.heroe.monedas += self.value
+        juego.msg("Tomo "+str(self.value)+", tienes "+str(juego.heroe.monedas)+" monedas de oro !")
         self.vivo = False
         juego.mapa.mover_actor(juego.heroe,self.x,self.y)
         return True
