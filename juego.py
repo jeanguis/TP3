@@ -26,9 +26,28 @@ class Juego(object):
         #### Modificar este codigo para que cargue el mapa dinamicamente
         #### a partir de `filas`
         ####
-        mapa = Mapa(10, 10)
+        posHero = 0
+        mapList = []
+        mapa = Mapa(len(filas), len(filas[0]))
+        for i, line in enumerate(filas):
+            for j, char in enumerate(line):
+                if(char == '@'):
+                    if posHero == 0:
+                        posHero = (i, line.index('@'))
+                    else:
+                        raise Exception("ERROR")
+                if(char == '#'):
+                    mapa.agregar_actor(actores.Pared(), i,j)
+                if(char == 'g'):
+                    mapa.agregar_actor(actores.Goblin(), i,j)
+                if(char == '$'):
+                    mapa.agregar_actor(actores.Moneda(), i,j)
+
+        if posHero == 0:
+            raise Exception("ERROR2")
+
         heroe = actores.Heroe()
-        mapa.agregar_actor(heroe, 5, 5)
+        mapa.agregar_actor(heroe, posHero[0], posHero[1])
         return mapa, heroe
 
     def turno(self, evento):

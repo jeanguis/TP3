@@ -83,6 +83,33 @@ class Heroe(Actor):
             return self.accion(dx, dy, juego)
         return False
 
+class Pared(Actor):
+    def __init__(self):
+        """Crea el Pared."""
+        Actor.__init__(self)
+
+    def dibujar(self):
+        """Devuelve el caracter que representa al Actor."""
+        return '#'
+
+
+class Goblin(Actor):
+    def __init__(self):
+        """Crea al Heroe."""
+        Actor.__init__(self)
+
+    def dibujar(self):
+        """Devuelve el caracter que representa al Heroe."""
+        return 'g'
+
+class Moneda(Actor):
+    def __init__(self):
+        """Crea al Heroe."""
+        Actor.__init__(self)
+
+    def dibujar(self):
+        """Devuelve el caracter que representa al Heroe."""
+        return '$'
 ###
 ### Agregar las clases Enemigo (g = goblin, o = orco), Moneda ($), Pared (#) y Salida (<)
 ###
