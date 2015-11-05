@@ -1,0 +1,6 @@
+\select@language {spanish}
+\contentsline {chapter}{\numberline {1}NetHack}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Section 1.1}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Subsection 1.1.1}{2}{subsection.1.1.1}
+\contentsline {subsubsection}{Python example}{3}{section*.2}
+\contentsline {chapter}{\numberline {2}El c\'odigo}{4}{chapter.2}
