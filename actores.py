@@ -1,5 +1,6 @@
 #coding=utf-8
 import curses
+import random
 
 class Actor(object):
     """Clase base para todas las entidades capaces de ocupar una posicion en el mapa."""
@@ -103,6 +104,8 @@ class Goblin(Actor):
         return 'g'
     
     def interactuar_con_heroe(self, juego):
+        if(random.randint(0,1)):
+            juego.msg("MONEY !!")
         self.vivo = False
         return True
 
