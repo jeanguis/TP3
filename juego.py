@@ -29,11 +29,11 @@ class Juego(object):
         posHero = 0
         mapList = []
         mapa = Mapa(len(filas[0]), len(filas))
-        T = zip(*filas)
-        for i in xrange(len(T)):
-           T[i] = ''.join(T[i])
-        filas = T
-        
+        reverse = zip(*filas)
+        for i in xrange(len(reverse)):
+           reverse[i] = ''.join(reverse[i])
+        filas = reverse
+
         for i, line in enumerate(filas):
             for j, char in enumerate(line):
                 if(char == '@'):

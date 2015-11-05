@@ -115,12 +115,22 @@ class Goblin(Actor):
 
 class Orco(Actor):
     def __init__(self):
-        """Crea al Heroe."""
+        """Crea al Orco."""
         Actor.__init__(self)
 
     def dibujar(self):
         """Devuelve el caracter que representa al Heroe."""
         return 'o'
+    
+    def interactuar_con_heroe(self, juego):
+        juego.msg("El orco muere !")
+        self.vivo = False
+        drop = random.randint(0,1)
+        if(drop):
+            value = random.randint(1,150)
+            juego.msg("El orco abandonó "+str(value))
+            juego.mapa.agregar_actor(Moneda(value), self.x,self.y)
+        return True
 
 class Moneda(Actor):
     def __init__(self, moneda):
