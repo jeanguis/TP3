@@ -99,11 +99,69 @@ Jean \textsc{Guis}\\
 \chapter{NetHack}
 
 \section{Análisis del sujeto}
-Aliquam a feugiat arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus, lorem quis bibendum hendrerit, massa arcu hendrerit sapien, vitae semper leo turpis sed erat. Praesent nunc eros, vulputate eu mi nec, porttitor malesuada enim. Donec maximus imperdiet mauris, vel consequat diam faucibus non. Nam pretium quam mauris, et facilisis est congue suscipit. Donec eu interdum diam. Pellentesque elementum elit quis condimentum consectetur. Nulla facilisi. Fusce ut urna ac neque feugiat ornare non vel ipsum. Vivamus consequat, risus vitae pulvinar feugiat, turpis ante iaculis ligula, vel elementum felis leo a metus. Nullam pharetra congue arcu vel tempus. 
+Aliquam a feugiat arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus, lorem quis bibendum hendrerit, massa arcu hendrerit sapien, vitae semper leo turpis sed erat. Praesent nunc eros, vulputate eu mi nec, porttitor malesuada enim. Donec maximus imperdiet mauris, vel consequat diam faucibus non. Nam pretium quam mauris, et facilisis est congue suscipit. Donec eu interdum diam. Pellentesque elementum elit quis condimentum consectetur. Nulla facilisi. Fusce ut urna ac neque feugiat ornare non vel ipsum. Vivamus consequat, risus vitae pulvinar feugiat, turpis ante iaculis ligula, vel elementum felis leo a metus. Nullam pharetra congue arcu vel tempus. Nulla facilisi. Fusce ut urna ac neque feugiat ornare non vel ipsum. Vivamus consequat, risus vitae pulvinar feugiat, turpis ante iaculis ligula, vel elementum felis leo a metus. Nullam pharetra congue arcu vel tempus. Nulla facilisi. Fusce ut urna ac neque feugiat ornare non vel ipsum. Vivamus consequat, risus vitae pulvinar feugiat, turpis ante iaculis ligula, vel elementum felis leo a metus. Nullam pharetra congue arcu vel tempus. 
 \section{Análisis}
 \subsection{juego.py}
 \subsubsection{Carga de la mapa}
-La primera cosas que necesitamos de hacer es de carga la mapa desde un archivo con el extension \emph{.map}. Los archivos dado tienen un archivo que se llama \emph{juego.py} que contiene la Class Juego.
+La primera cosas que necesitamos de hacer es de carga la mapa desde un archivo con el extension \emph{.map}. Los archivos dado tienen un archivo que se llama \emph{juego.py} que contiene la Class Juego. \\\\
+La mapas en tienen el formato siguiente por ejemplo:
+\begin{python}
+####################
+#.................@#
+#..g...............#
+#..................#
+#..................#
+#..................#
+#.##################
+#..................#
+#........o.........#
+#..g...............#
+#..................#
+#..........g.......#
+#..................#
+##################.#
+#..................#
+#..........$....o..#
+#..................#
+#...o..............#
+#.<.oo.............#
+#...o..............#
+####################
+\end{python}
+En el init de la clase, se lee la mapa y le agrega a una lista con este formato, con un string para cada linea:
+\begin{python}
+filas =  ["####################", "#.................@#", ...]
+\end{python}
+Necessitamos decir que ahora no hay hero, y tambien crear una instancia de la classe \emph{Mapa} para recibir la mapa.
+\begin{python}
+posHero = 0
+mapa = Mapa(len(filas[0]), len(filas))
+\end{python}
+El algorithmo que imprime la mapa impreme la mapa carater para carater pero no en el sentido común. Necesitamos de invertir la lista.
+Ejemplo de lista.
+\begin{python}
+a b c d e f
+g h i j k l m
+n o p q r s 
+t u v w x y
+\end{python}
+Ejemblo de lista invertio.
+\begin{python}
+a g n t
+b h o u
+c i p v 
+d k q w
+e l r x
+f m s y
+\end{python}
+Utilizamos :
+\begin{python}
+reverse = zip(*filas)
+for i in xrange(len(reverse)):
+reverse[i] = ''.join(reverse[i])
+filas = reverse
+del reverse
+\end{python}
 \subsubsection{Arrancar y deterner el juego}
 \subsection{actores.py}
 \subsubsection{La classe Actor}

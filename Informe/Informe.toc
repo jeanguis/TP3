@@ -1,17 +1,17 @@
 \select@language {spanish}
 \contentsline {chapter}{\numberline {1}NetHack}{2}{chapter.1}
 \contentsline {section}{\numberline {1.1}An\'alisis del sujeto}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}An\'alisis}{2}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}juego.py}{2}{subsection.1.2.1}
-\contentsline {subsubsection}{Carga de la mapa}{2}{section*.2}
-\contentsline {subsubsection}{Arrancar y deterner el juego}{3}{section*.3}
-\contentsline {subsection}{\numberline {1.2.2}actores.py}{3}{subsection.1.2.2}
-\contentsline {subsubsection}{La classe Actor}{3}{section*.4}
-\contentsline {subsubsection}{La classe Heroe}{3}{section*.5}
-\contentsline {subsubsection}{La classe Pared}{3}{section*.6}
-\contentsline {subsubsection}{La classe Goblin}{3}{section*.7}
-\contentsline {subsubsection}{La classe Orco}{3}{section*.8}
-\contentsline {subsubsection}{La classe Moneda}{3}{section*.9}
-\contentsline {subsubsection}{La classe Salida}{3}{section*.10}
-\contentsline {subsection}{\numberline {1.2.3}mapa.py}{3}{subsection.1.2.3}
-\contentsline {chapter}{\numberline {2}El c\'odigo}{4}{chapter.2}
+\contentsline {section}{\numberline {1.2}An\'alisis}{3}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}juego.py}{3}{subsection.1.2.1}
+\contentsline {subsubsection}{Carga de la mapa}{3}{section*.2}
+\contentsline {subsubsection}{Arrancar y deterner el juego}{5}{section*.3}
+\contentsline {subsection}{\numberline {1.2.2}actores.py}{5}{subsection.1.2.2}
+\contentsline {subsubsection}{La classe Actor}{5}{section*.4}
+\contentsline {subsubsection}{La classe Heroe}{5}{section*.5}
+\contentsline {subsubsection}{La classe Pared}{5}{section*.6}
+\contentsline {subsubsection}{La classe Goblin}{5}{section*.7}
+\contentsline {subsubsection}{La classe Orco}{5}{section*.8}
+\contentsline {subsubsection}{La classe Moneda}{5}{section*.9}
+\contentsline {subsubsection}{La classe Salida}{5}{section*.10}
+\contentsline {subsection}{\numberline {1.2.3}mapa.py}{5}{subsection.1.2.3}
+\contentsline {chapter}{\numberline {2}El c\'odigo}{6}{chapter.2}

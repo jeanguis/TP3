@@ -4,7 +4,6 @@ from mapa import Mapa
 import sys
 
 class Juego(object):
-
     def __init__(self, nombre_mapa):
         """Carga el mapa del juego a partir del archivo mapas/<nombre_mapa>.map."""
         with open("mapas/{}.map".format(nombre_mapa)) as f:
@@ -15,7 +14,6 @@ class Juego(object):
         self.juego_terminado = False
         # El historial de mensajes es simplemente una lista de strings.
         self.mensajes = []
-        self.isFinish = False
 
     def crear_mapa(self, filas):
         """Crea el Mapa a partir de la definicion provista por parametro (`filas`),
@@ -25,21 +23,32 @@ class Juego(object):
         `filas` es una lista de strings, que corresponde con el contenido completo
         del archivo .map."""
 
+        #There is no hero, create the map.
         posHero = 0
-        mapList = []
         mapa = Mapa(len(filas[0]), len(filas))
+
+        #Invert the list of str
         reverse = zip(*filas)
         for i in xrange(len(reverse)):
            reverse[i] = ''.join(reverse[i])
         filas = reverse
+        del reverse
 
+        #for each line in the list of str
         for i, line in enumerate(filas):
+            #for each character in the str
             for j, char in enumerate(line):
+                #si el caracter es @
                 if(char == '@'):
-                    if posHero == 0:
+                    #Si hay hero
+                    if posHero == 0: 
+                        #Nuevo hero
                         posHero = (i, j)
                     else:
-                        raise Exception("ERROR")
+                        #Sino : Error, Hay dos !
+                        raise Exception("Hay 2 heroes en la mapa")
+
+                # Agrega los actores a la map
                 if(char == '#'):
                     mapa.agregar_actor(actores.Pared(), i,j)
                 if(char == 'g'):
@@ -51,11 +60,13 @@ class Juego(object):
                 if(char == '<'):
                     mapa.agregar_actor(actores.Salida(), i,j)
 
-
+        # Si no hay heroe : Exception
         if posHero == 0:
-            raise Exception("ERROR2")
+            raise Exception("No hay heroe en la mapa")
 
+        # Cree el horoe
         heroe = actores.Heroe()
+        # Lo agrega a la map
         mapa.agregar_actor(heroe, posHero[0], posHero[1])
         return mapa, heroe
 
@@ -111,8 +122,6 @@ class Juego(object):
                 self.dibujar_mensajes(pantalla.derwin(0, self.mapa.ancho() + 2), self.mapa.alto())
 
                 evento = pantalla.getch()
-                if self.isFinish:
-                    break
 
                 if evento == ord("q"):
                     break

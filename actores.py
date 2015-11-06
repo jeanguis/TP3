@@ -165,5 +165,5 @@ class Salida(Actor):
     def interactuar_con_heroe(self, juego):
         """Si el heroe interactuar con la salida, show message y deterner el cyclo infinito."""
         juego.msg("Has escapado del calabozo !")
-        juego.isFinish = True
+        juego.juego_terminado = True
         return True
