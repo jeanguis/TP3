@@ -4,6 +4,7 @@ from mapa import Mapa
 import sys
 
 class Juego(object):
+
     def __init__(self, nombre_mapa):
         """Carga el mapa del juego a partir del archivo mapas/<nombre_mapa>.map."""
         with open("mapas/{}.map".format(nombre_mapa)) as f:
@@ -14,6 +15,7 @@ class Juego(object):
         self.juego_terminado = False
         # El historial de mensajes es simplemente una lista de strings.
         self.mensajes = []
+        self.isFinish = False
 
     def crear_mapa(self, filas):
         """Crea el Mapa a partir de la definicion provista por parametro (`filas`),
@@ -22,10 +24,7 @@ class Juego(object):
         heroe, la funcion lanza una excepcion.
         `filas` es una lista de strings, que corresponde con el contenido completo
         del archivo .map."""
-        ####
-        #### Modificar este codigo para que cargue el mapa dinamicamente
-        #### a partir de `filas`
-        ####
+
         posHero = 0
         mapList = []
         mapa = Mapa(len(filas[0]), len(filas))
@@ -38,19 +37,20 @@ class Juego(object):
             for j, char in enumerate(line):
                 if(char == '@'):
                     if posHero == 0:
-                        posHero = (i, line.index('@'))
+                        posHero = (i, j)
                     else:
                         raise Exception("ERROR")
                 if(char == '#'):
                     mapa.agregar_actor(actores.Pared(), i,j)
                 if(char == 'g'):
                     mapa.agregar_actor(actores.Goblin(), i,j)
+                if(char == 'o'):
+                    mapa.agregar_actor(actores.Orco(), i,j)
                 if(char == '$'):
                     mapa.agregar_actor(actores.Moneda(100), i,j)
                 if(char == '<'):
                     mapa.agregar_actor(actores.Salida(), i,j)
-                if(char == 'o'):
-                    mapa.agregar_actor(actores.Orco(), i,j)
+
 
         if posHero == 0:
             raise Exception("ERROR2")
@@ -111,6 +111,9 @@ class Juego(object):
                 self.dibujar_mensajes(pantalla.derwin(0, self.mapa.ancho() + 2), self.mapa.alto())
 
                 evento = pantalla.getch()
+                if self.isFinish:
+                    break
+
                 if evento == ord("q"):
                     break
                 self.turno(evento)

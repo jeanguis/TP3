@@ -4,7 +4,6 @@ import random
 
 class Actor(object):
     """Clase base para todas las entidades capaces de ocupar una posicion en el mapa."""
-
     def __init__(self):
         """Inicializa el Actor."""
         self.x = 0
@@ -85,6 +84,7 @@ class Heroe(Actor):
         return False
 
 class Pared(Actor):
+    """ SF"""
     def __init__(self):
         """Crea el Pared."""
         Actor.__init__(self)
@@ -153,6 +153,7 @@ class Moneda(Actor):
         return True
 
 class Salida(Actor):
+    """Representa la salida de la mapa"""
     def __init__(self):
         """Crea la Salida."""
         Actor.__init__(self)
@@ -162,12 +163,7 @@ class Salida(Actor):
         return '<'
 
     def interactuar_con_heroe(self, juego):
-        """Realiza la accion correspondiente a la interaccion con el heroe (es
-        decir, cuando el heroe intenta moverse a la posicion ocupada por este actor).
-        Devuelve True si el heroe realizo alguna accion, False en caso contrario."""
+        """Si el heroe interactuar con la salida, show message y deterner el cyclo infinito."""
         juego.msg("Has escapado del calabozo !")
+        juego.isFinish = True
         return True
-
-###
-### Agregar las clases Enemigo (g = goblin, o = orco), Moneda ($), Pared (#) y Salida (<)
-###

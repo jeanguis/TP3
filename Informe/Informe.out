@@ -1,4 +1,7 @@
 \BOOKMARK [0][-]{chapter.1}{NetHack}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Section 1.1}{chapter.1}% 2
-\BOOKMARK [2][-]{subsection.1.1.1}{Subsection 1.1.1}{section.1.1}% 3
-\BOOKMARK [0][-]{chapter.2}{El c\363digo}{}% 4
+\BOOKMARK [1][-]{section.1.1}{An\341lisis del sujeto}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{An\341lisis}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{juego.py}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{actores.py}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{mapa.py}{section.1.2}% 6
+\BOOKMARK [0][-]{chapter.2}{El c\363digo}{}% 7
